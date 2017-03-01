@@ -92,6 +92,7 @@ class PhoneFrame
     JPanel callControlButtons = new JPanel();
     JButton answerButton = new JButton();
     JButton hangupButton = new JButton();
+    JButton forwardButton = new JButton();
     GridLayout gridLayout1 = new GridLayout();
     Border border6;
     Border border7;
@@ -116,6 +117,12 @@ class PhoneFrame
     JPanel dialPanel = new JPanel();
     JButton dialButton = new JButton();
     JComboBox contactBox = new JComboBox();
+	
+	//blocking
+	JButton blockButton = new JButton();
+	
+	//calls
+	JButton callsButton = new JButton();
 
     public PhoneFrame(GuiManager guiManCallback) //throws HeadlessException
     {
@@ -180,9 +187,25 @@ class PhoneFrame
         hangupButton.setEnabled(false);
         hangupButton.setMnemonic('H');
         hangupButton.setText("Hangup");
+        //forwarding
+        forwardButton.setEnabled(false); 
+ 		forwardButton.setMnemonic('H'); 
+        forwardButton.setText("Forward"); 
+
         callControlButtons.setLayout(gridLayout1);
         gridLayout1.setHgap(10);
         gridLayout1.setVgap(10);
+		
+		//blocking
+		blockButton.setEnabled(false);
+        blockButton.setMnemonic('B');;
+        blockButton.setText("Block");
+        
+      //calls
+      callsButton.setEnabled(false);
+      callsButton.setMnemonic('C');;
+      callsButton.setText("Calls");
+		
         callControlButtons.setBorder(border6);
         borderLayout2.setHgap(10);
         borderLayout2.setVgap(0);
@@ -221,6 +244,16 @@ class PhoneFrame
         controlPanel.add(callControlButtons, BorderLayout.SOUTH);
         callControlButtons.add(answerButton, null);
         callControlButtons.add(hangupButton, null);
+		
+		//blocking
+		callControlButtons.add(blockButton, null);
+		
+		//forwarding
+		callControlButtons.add(forwardButton, null); 
+		
+		//calls
+		callControlButtons.add(callsButton, null); 
+		
         controlPanel.add(participantsScroll,  BorderLayout.CENTER);
         participantsScroll.setViewportView(participantsTable);
         statusPanel.add(registrationLabel, BorderLayout.WEST);

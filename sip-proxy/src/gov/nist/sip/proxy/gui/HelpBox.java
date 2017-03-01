@@ -7,24 +7,11 @@
 package gov.nist.sip.proxy.gui;
 
 
-import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Color;
-import java.awt.Dialog;
-import java.awt.Frame;
-import java.awt.TextArea;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-
-import javax.swing.JOptionPane;
-
-import gov.nist.sip.proxy.utils.FileIOHelper;
+import javax.swing.*;
+import javax.swing.border.*;
+import java.awt.* ;
+import java.awt.event.* ;
+import java.io.* ;
 
 /**
  *
@@ -43,10 +30,7 @@ public class HelpBox extends Dialog {
         super(new Frame()," Proxy Help ",false);
         try{
             // ECE355 - Change path to help file so that it will work from Eclipse
-            helpFile = new File("./src/gov/nist/sip/proxy/gui/helpProxy.txt") ;
-//        	FileIOHelper ioHelper = new FileIOHelper();
-//        	helpFile = ioHelper.getFileInclasspath("help/helpProxy.txt");
-        	
+            helpFile = new File("./gov/nist/sip/proxy/gui/helpProxy.txt") ;
             this.setLayout(new BorderLayout()) ;
             this.setBackground(Color.lightGray);
             helpTextArea = new TextArea();
@@ -98,7 +82,6 @@ public class HelpBox extends Dialog {
             System.out.println
 	     ("Problem while opening the help file \"help/gov/nist/sip/proxy/gui/helpProxy.txt\"") ;
             new AlertFrame("The help file can not be found",JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
         }
     }
     

@@ -2,9 +2,6 @@ package gov.nist.sip.proxy;
 
 import java.io.*;
 import java.util.*;
-
-import gov.nist.sip.proxy.utils.FileIOHelper;
-
 import java.net.*;
 import java.lang.*;
 
@@ -23,6 +20,7 @@ public class ProxyDebug {
     private static String proxyOutput;
     private static PrintStream stream=System.out;
     
+    
     public static void setProxyOutputFile(String proxyOut) {
        proxyOutput=proxyOut;
     }
@@ -31,9 +29,7 @@ public class ProxyDebug {
 	String text, boolean sep) {
         // we read this file to obtain the options
         try{
-//        	FileIOHelper ioHelper = new FileIOHelper();
-//        	FileWriter fileWriter = new FileWriter(ioHelper.getFileInclasspath(outFile),true);
-        	FileWriter fileWriter = new FileWriter(outFile,true);
+            FileWriter fileWriter = new FileWriter(outFile,true);
             PrintWriter pw = new PrintWriter(fileWriter,false);
             
             if (text==null) {

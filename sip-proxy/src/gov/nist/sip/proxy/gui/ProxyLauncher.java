@@ -47,8 +47,6 @@ import javax.swing.border.EtchedBorder;
  */
 public class ProxyLauncher extends JFrame{
 
-	private static final String DEFAULT_PROXY_CONFIG_FILE = "src/gov/nist/sip/proxy/configuration/configuration.xml";
-	
     // Menus
     protected JMenuBar menuBar;
     protected JMenu menuMenu;
@@ -343,8 +341,8 @@ public class ProxyLauncher extends JFrame{
     public static void main(String args[]) {
         try{
             // the Proxy:
-            //String confFile= (String) args[1];
-            ProxyLauncher proxyLauncher= new ProxyLauncher(DEFAULT_PROXY_CONFIG_FILE);
+            String confFile= (String) args[1];
+            ProxyLauncher proxyLauncher= new ProxyLauncher(confFile);
             //proxyLauncher.start();
             //ProxyDebug.println("Proxy ready to work");
             System.out.println("in main ProxyLauncher");
